@@ -45,8 +45,11 @@ requirements:
     - ecl
 
 test:
+  files:
+    - run-from-ecl.lisp
   commands:
     - maxima --version
+    - ecl -shell run-from-ecl.lisp
 
 about:
   home: http://maxima.sourceforge.net/
