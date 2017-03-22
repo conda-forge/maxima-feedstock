@@ -13,21 +13,21 @@ source:
     # Patches from https://git.sagemath.org/sage.git/tree/build/pkgs/maxima/patches
     # Fixes an overflow of the lisp stack when expanding some Taylor series;
     # see https://sourceforge.net/p/maxima/bugs/2520/
-    - 0001-taylor2-Avoid-blowing-the-stack-when-diff-expand-isn.patch
+    - patches/0001-taylor2-Avoid-blowing-the-stack-when-diff-expand-isn.patch
     # Fixes a test failure that can occur when the install tree has been
     # relocated; see https://trac.sagemath.org/ticket/11348
-    - infodir.patch
+    - patches/infodir.patch
     # Fixes a bug in matrix inversion that affects Sage; see
     # https://sourceforge.net/p/maxima/bugs/2596/
-    - matrixexp.patch
+    - patches/matrixexp.patch
     # Fixes a regression in printing that causes test failures in Sage, and
     # has not been reverted yet; see https://trac.sagemath.org/ticket/13364#comment:89
-    - undoing_true_false_printing_patch.patch
+    - patches/undoing_true_false_printing_patch.patch
     # Disables a few tests that currently do not pass on OSX, at least under
     # Travis, for unknown reasons
-    - osx_tests.patch  # [osx]
+    - patches/osx_tests.patch  # [osx]
     # Build a fasl library for ecl
-    - maxima.system.patch
+    - patches/maxima.system.patch
 
 build:
   number: 0
