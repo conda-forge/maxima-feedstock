@@ -22,5 +22,5 @@ make install
 
 # Install Maxima into ECL's library directory
 ECLLIB=`ecl -eval "(princ (SI:GET-LIBRARY-PATHNAME))" -eval "(quit)"`
-cp -f "binary-ecl/maxima.fas" "$ECLLIB/maxima.fas"
+cp -f "src/binary-ecl/maxima.fas" "$ECLLIB/maxima.fas"
 
