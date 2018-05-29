@@ -1,0 +1,5 @@
+pin_run_as_build:
+  readline:
+    max_pin: x.x
+readline:
+- '7.0'
