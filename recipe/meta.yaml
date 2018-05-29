@@ -35,7 +35,6 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - libtool
     - texinfo
   host:
