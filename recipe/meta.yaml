@@ -57,7 +57,7 @@ about:
   license_file: COPYING
   summary: Maxima is a system for the manipulation of symbolic and numerical expressions.
   doc_url: http://maxima.sourceforge.net/documentation.html
-  dev_url: https://gitlab.com/embeddable-common-lisp/ecl
+  dev_url: https://sourceforge.net/p/maxima/code/ci/master/tree/
 
 extra:
   recipe-maintainers:
