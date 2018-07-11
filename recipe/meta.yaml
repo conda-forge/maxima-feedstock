@@ -35,14 +35,19 @@ build:
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
     - libtool
     - texinfo
-    - readline 6.2*
+  host:
     - ecl >=6.1.3-1
+    - readline
+    - gmp
+    - bdw-gc
   run:
-    - readline 6.2*
+    - readline
     - ecl
+    - gmp
+    - {{ pin_compatible('bdw-gc') }}
 
 test:
   files:
@@ -57,9 +62,10 @@ about:
   license_file: COPYING
   summary: Maxima is a system for the manipulation of symbolic and numerical expressions.
   doc_url: http://maxima.sourceforge.net/documentation.html
-  dev_url: https://gitlab.com/embeddable-common-lisp/ecl
+  dev_url: https://sourceforge.net/p/maxima/code/ci/master/tree/
 
 extra:
   recipe-maintainers:
     - embray
     - isuruf
+    - saraedum
