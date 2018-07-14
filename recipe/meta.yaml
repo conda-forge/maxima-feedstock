@@ -1,4 +1,4 @@
-{% set version = "5.39.0" %}
+{% set version = "5.41.0" %}
 {% set name = "maxima" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tgz
   url: https://sourceforge.net/projects/maxima/files/Maxima-source/{{ version }}-source/{{ name }}-{{ version }}.tar.gz
-  sha256: f58ff98013fcaa37d8661b941672c38db58f982f082d6cfcca1f1b5fac7d71b3
+  sha256: daf8254600f4c7d9f079a0084178aaf036bd97a63b1e77b945f4120d7e401674
   patches:
     # Patches from https://git.sagemath.org/sage.git/tree/build/pkgs/maxima/patches
     # Fixes an overflow of the lisp stack when expanding some Taylor series;
@@ -30,7 +30,7 @@ source:
     - patches/maxima.system.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
 
 requirements:
