@@ -1,0 +1,16 @@
+Remove tests that are broken in some setups, see https://sourceforge.net/p/maxima/bugs/2340/
+--- a/tests/rtest8.mac
++++ b/tests/rtest8.mac
+@@ -393,12 +393,6 @@
+ e5 : quad_qawf (foo (u), u, au, omega, sin, limit=32);
+ quad_qawf (foo (u), u, au, omega, sin, epsabs=1e-10, limit=32, maxp1=100, limlst=10);
+ 
+-e5 : ev (e5, foo(u)=exp(-u));
+-quad_qawf (exp (- u), u, au, omega, sin, epsabs=1e-10, limit=32, maxp1=100, limlst=10);
+-
+-ev (e5, au=0, omega=2);
+-[.4000000000000001, 2.216570948815925E-11, 175, 0];
+-
+ e6 : quad_qawo (foo (u), u, au, bu, omega, cos, limit=64);
+ quad_qawo (foo (u), u, au, bu, omega, cos, epsrel=1e-8, epsabs=0.0, limit=64, maxp1=100);
+ 
