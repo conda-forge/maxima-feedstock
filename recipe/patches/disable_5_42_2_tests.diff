@@ -1,0 +1,21 @@
+diff --git a/share/linearalgebra/rtest_matrixexp.mac b/share/linearalgebra/rtest_matrixexp.mac
+index 67e4137..5975457 100644
+--- a/share/linearalgebra/rtest_matrixexp.mac
++++ b/share/linearalgebra/rtest_matrixexp.mac
+@@ -98,15 +98,6 @@ true$
+ check(matrix([x,1],[1,1]), 2);
+ true$
+ 
+-check(matrix([sqrt(3), sqrt(2)],[sqrt(2), 9]),2);
+-true$
+-
+-check(matrix([sqrt(6),1],[1, -9]),2);
+-true$
+-
+-check(matrix([sqrt(3), sqrt(2)],[sqrt(2), 9]),2);
+-true$
+-
+ check(matrix([a,b],[c,d]),2);
+ true$
+ 
+
