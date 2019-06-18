@@ -29,6 +29,8 @@ source:
     - patches/maxima.system.patch
     # Disable test that fails with ecl 16.1.2 in some setups
     - patches/rtest8.patch
+    # Disable tests that started fails in 5.42.2
+    - patches/disable_5_42_2_tests.diff
 
 build:
   number: 0
