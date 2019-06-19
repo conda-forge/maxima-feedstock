@@ -33,7 +33,7 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -45,12 +45,10 @@ requirements:
     - ecl 16.1.2
     - readline
     - gmp
-    - bdw-gc
   run:
     - readline
     - {{ pin_compatible('ecl', max_pin='x.x.x') }}
     - gmp
-    - {{ pin_compatible('bdw-gc') }}
 
 test:
   files:
