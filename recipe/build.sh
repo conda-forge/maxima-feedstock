@@ -16,7 +16,12 @@ chmod +x configure
         --enable-ecl
 
 make -j${CPU_COUNT}
-make check -j${CPU_COUNT} || (cat tests/test-suite.log && exit 1)
+
+if [[ "$target_platform" == "linux-ppc64le" || "$target_platform" == "linux-aarch64" ]]; then
+  echo "Skipping tests as they take too long"
+else
+  make check -j${CPU_COUNT} || (cat tests/test-suite.log && exit 1)
+fi
 make install
 
 # Install Maxima into ECL's library directory
