@@ -41,6 +41,7 @@ requirements:
     - {{ compiler('c') }}
     - libtool
     - texinfo
+    - make
   host:
     - ecl 16.1.2
     - readline
