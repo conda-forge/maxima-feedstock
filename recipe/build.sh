@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
 export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 export CFLAGS="-g -O2 $CFLAGS"
 
@@ -9,6 +10,7 @@ fi
 
 chmod +x configure
 ./configure \
+        --build=$BUILD \
         --host=$HOST \
         --prefix="$PREFIX" \
         --libdir="$PREFIX/lib" \
