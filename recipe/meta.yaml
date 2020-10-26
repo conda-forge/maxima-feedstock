@@ -40,7 +40,7 @@ requirements:
     - texinfo
     - make
   host:
-    - ecl 16.1.2
+    - ecl 20.4.*
     - readline
     - gmp
   run:
