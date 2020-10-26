@@ -2,6 +2,8 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '8'
+cdt_name:
+- cos7
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -17,3 +19,5 @@ pin_run_as_build:
     max_pin: x
 readline:
 - '8.0'
+target_platform:
+- linux-ppc64le
