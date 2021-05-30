@@ -35,6 +35,7 @@ build:
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - libtool
     - texinfo
