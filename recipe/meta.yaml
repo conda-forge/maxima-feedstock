@@ -40,6 +40,7 @@ requirements:
     - libtool
     - texinfo
     - make
+    - ecl   # [build_platform != target_platform]
   host:
     - ecl
     - readline
