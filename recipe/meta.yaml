@@ -30,7 +30,7 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -41,7 +41,7 @@ requirements:
     - texinfo
     - make
   host:
-    - ecl 20.4.*
+    - ecl
     - readline
     - gmp
   run:
