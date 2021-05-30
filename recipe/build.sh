@@ -1,11 +1,9 @@
 #!/bin/bash
+
+set -x
+
 # Get an updated config.sub and config.guess
 cp $BUILD_PREFIX/share/gnuconfig/config.* .
-
-export CPPFLAGS="-I$PREFIX/include $CPPFLAGS"
-export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
-export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
-export CFLAGS="-g -O2 $CFLAGS"
 
 if [[ "$target_platform" == osx* ]]; then
     export CFLAGS="-Wno-unknown-attributes $CFLAGS"
