@@ -30,17 +30,19 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - libtool
     - texinfo
     - make
+    - ecl   # [build_platform != target_platform]
   host:
-    - ecl 20.4.*
+    - ecl
     - readline
     - gmp
   run:
