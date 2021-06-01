@@ -28,7 +28,7 @@ fi
 make install
 
 # Install Maxima into ECL's library directory
-ECLLIB=`ecl -eval "(princ (SI:GET-LIBRARY-PATHNAME))" -eval "(quit)"`
+ECLLIB=$PREFIX/lib/ecl-$(ecl --version | cut -b 5-)
 cp -f "src/binary-ecl/maxima.fas" "$ECLLIB/maxima.fas"
 # Remove this once https://github.com/conda/conda-build/pull/1775 is in a release
 cp -f "src/binary-ecl/maxima.fas" "$ECLLIB/../ecl/maxima.fas"
