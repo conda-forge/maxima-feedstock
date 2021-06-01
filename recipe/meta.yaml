@@ -30,8 +30,8 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
+  skip: true  # [win or (osx and arm64)]
 
 requirements:
   build:
