@@ -59,7 +59,7 @@ test:
 
 about:
   home: http://maxima.sourceforge.net/
-  license: GPLv2+
+  license: GPL-3.0-or-later
   license_file: COPYING
   summary: Maxima is a system for the manipulation of symbolic and numerical expressions.
   doc_url: http://maxima.sourceforge.net/documentation.html
