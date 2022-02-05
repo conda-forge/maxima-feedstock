@@ -17,9 +17,6 @@ source:
     # Fixes a bug in matrix inversion that affects Sage; see
     # https://sourceforge.net/p/maxima/bugs/2596/
     - patches/matrixexp.patch
-    # Fixes a regression in printing that causes test failures in Sage, and
-    # has not been reverted yet; see https://trac.sagemath.org/ticket/13364#comment:89
-    - patches/undoing_true_false_printing_patch.patch
     # Disables a few tests that currently do not pass, see #14
     - patches/osx_tests.patch
     # Build a fasl library for ecl
@@ -30,7 +27,7 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win or (osx and arm64)]
 
 requirements:
