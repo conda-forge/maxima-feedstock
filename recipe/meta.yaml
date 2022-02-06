@@ -46,6 +46,9 @@ requirements:
     - readline
     - {{ pin_compatible('ecl', max_pin='x.x.x') }}
     - gmp
+  run_constrained:
+    # sagelib <9.5 expects a patch to be applied that reformats the maxima output. This patch was dropped in 5.45.0 build 3.
+    - sagelib >=9.5
 
 test:
   files:
