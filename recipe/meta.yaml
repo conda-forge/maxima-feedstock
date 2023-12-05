@@ -19,8 +19,6 @@ source:
     - patches/matrixexp.patch
     # Disables a few tests that currently do not pass, see #14
     - patches/osx_tests.patch
-    # Build a fasl library for ecl
-    - patches/maxima.system.patch
     # Disable test that fails with ecl 16.1.2 in some setups
     - patches/rtest8.patch
     # Disable tests that started fails in 5.42.2
