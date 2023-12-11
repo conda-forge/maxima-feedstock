@@ -25,7 +25,7 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or (osx and arm64)]
 
 requirements:
@@ -45,8 +45,8 @@ requirements:
     - {{ pin_compatible('ecl', max_pin='x.x.x') }}
     - gmp
   run_constrained:
-    # sagelib <9.5 expects a patch to be applied that reformats the maxima output. This patch was dropped in 5.45.0 build 3.
-    - sagelib >=9.5
+    # sagelib <10.1 is incompatible with maxima 5.47, see https://github.com/conda-forge/maxima-feedstock/issues/33
+    - sagelib >=10.1
 
 test:
   files:
