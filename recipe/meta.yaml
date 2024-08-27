@@ -25,13 +25,14 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win or (osx and arm64)]
 
 requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - libtool
     - texinfo
     - make
