@@ -1,0 +1,29 @@
+diff --git a/src/ecl-port.lisp b/src/ecl-port.lisp
+index 0fe3af3..63dd7dc 100644
+--- a/src/ecl-port.lisp
++++ b/src/ecl-port.lisp
+@@ -13,10 +13,7 @@
+ (eval-when (:load-toplevel)
+   (defun maxima::make-unspecial (s)
+     (when (symbolp s)
+-      (format t "~%;;; Declaring ~A as NOT SPECIAL" s)
+-      (ffi::c-inline (s) (:object) :object
+-		     "(#0)->symbol.stype &= ~stp_special;"
+-		     :one-liner nil)
++      (format t "~%;;; ET Declaring ~A as NOT SPECIAL" s)
+       s)))
+ 
+ (si::trap-fpe 'floating-point-underflow nil)
+diff --git a/src/server.lisp b/src/server.lisp
+index 1467be7..0d038eb 100644
+--- a/src/server.lisp
++++ b/src/server.lisp
+@@ -38,7 +38,7 @@
+     ;; Some lisps if the front-end dies by default don't quit but output an
+     ;; error message to the front-end that (as the front-end doesn't exist
+     ;; any more) causes an error message that...
+-    #+ecl (ext:set-signal-handler EXT:+SIGPIPE+ 'ext:quit)
++    #+(and ecl (not win32)) (ext:set-signal-handler EXT:+SIGPIPE+ 'ext:quit)
+     
+     (setq *socket-connection* sock)
+     (setq $old_stderr *error-output*

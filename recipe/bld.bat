@@ -7,11 +7,10 @@ ecl -load configure.lisp -eval "(configure :interactive nil)" -eval "(quit)"
 if errorlevel 1 exit 1
 
 :: Build
-:: Using "(maxima-compile)" doesn't work:
+:: Using "(maxima-compile)" doesn't work: https://sourceforge.net/p/maxima/bugs/4565/
 cd src
 ecl -load maxima-build.lisp ^
-    -eval "(require 'cmp)" ^
-    -eval "(require `asdf)" ^
+    -eval "(require 'asdf)" ^
     -eval "(push \"./\" asdf:*central-registry*)" ^
     -eval "(asdf:make-build :maxima :type :fasl)" ^
     -eval "(quit)"

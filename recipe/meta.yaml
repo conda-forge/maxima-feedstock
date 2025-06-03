@@ -23,6 +23,8 @@ source:
     - patches/rtest8.patch
     # Disable tests that started fails in 5.42.2
     - patches/disable_5_42_2_tests.diff
+    # Fix compilation on Windows
+    - patches/win_compile.patch
 
 build:
   number: 4
