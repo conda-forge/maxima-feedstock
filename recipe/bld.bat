@@ -12,9 +12,14 @@ cd src
 ecl -load maxima-build.lisp ^
     -eval "(require 'asdf)" ^
     -eval "(push \"./\" asdf:*central-registry*)" ^
-    -eval "(asdf:make-build :maxima :type :fasl)" ^
+    -eval "(asdf:make-build :maxima :type :fasl :move-here \".\")" ^
     -eval "(quit)"
 if errorlevel 1 exit 1
 
 :: Test
 :: TODO
+
+:: Install Maxima into ECL's library directory
+dir
+for /f "delims=" %%i in ('ecl -eval "(princ (SI:GET-LIBRARY-PATHNAME))" -eval "(quit)"') do set "ECLLIB=%%i"
+copy /Y "src\maxima.fas" "%ECLLIB%\maxima.fas"

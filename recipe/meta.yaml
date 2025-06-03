@@ -55,7 +55,7 @@ test:
   files:
     - run-from-ecl.lisp
   commands:
-    - maxima --version
+    - maxima --version  # [unix]
     - ecl -shell run-from-ecl.lisp
 
 about:
