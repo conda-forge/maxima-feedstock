@@ -1,4 +1,4 @@
-{% set version = "5.47.0" %}
+{% set version = "5.48.0" %}
 {% set name = "maxima" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tgz
   url: https://sourceforge.net/projects/maxima/files/Maxima-source/{{ version }}-source/{{ name }}-{{ version }}.tar.gz
-  sha256: 9104021b24fd53e8c03a983509cb42e937a925e8c0c85c335d7709a14fd40f7a
+  sha256: 75af2bf1894df2a17aef8a5c378d72d4d53c669b9f47d60ec5ba8c8676c4aaab
   patches:
     # Patches from https://git.sagemath.org/sage.git/tree/build/pkgs/maxima/patches
     # Fixes a test failure that can occur when the install tree has been
@@ -25,7 +25,7 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win or (osx and arm64)]
 
 requirements:
