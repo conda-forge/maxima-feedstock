@@ -27,8 +27,8 @@ source:
     - patches/win_compile.patch
 
 build:
-  number: 5
-  skip: true  # [win or (osx and arm64)]
+  number: 1
+  skip: true  # [osx and arm64]
 
 requirements:
   build:
