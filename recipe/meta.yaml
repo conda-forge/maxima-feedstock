@@ -23,26 +23,28 @@ source:
     - patches/rtest8.patch
     # Disable tests that started fails in 5.42.2
     - patches/disable_5_42_2_tests.diff
+    # Fix compilation on Windows
+    - patches/win_compile.patch
 
 build:
-  number: 0
-  skip: true  # [win or (osx and arm64)]
+  number: 1
+  skip: true  # [osx and arm64]
 
 requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - libtool
-    - texinfo
-    - make
-    - ecl   # [build_platform != target_platform]
+    - libtool  # [unix]
+    - texinfo  # [unix]
+    - make  # [unix]
+    - ecl   # [win or (build_platform != target_platform)]
   host:
     - ecl
-    - readline
+    - readline  # [unix]
     - gmp
   run:
-    - readline
+    - readline  # [unix]
     - {{ pin_compatible('ecl', max_pin='x.x.x') }}
     - gmp
   run_constrained:
@@ -53,7 +55,7 @@ test:
   files:
     - run-from-ecl.lisp
   commands:
-    - maxima --version
+    - maxima --version  # [unix]
     - ecl -shell run-from-ecl.lisp
 
 about:
