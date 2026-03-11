@@ -12,7 +12,7 @@ cd src
 ecl -load maxima-build.lisp ^
     -eval "(require 'asdf)" ^
     -eval "(push #p\"./\" asdf:*central-registry*)" ^
-    -eval "(asdf:compile-system "maxima")" ^
+    -eval "(asdf:compile-system \"maxima\")" ^
     -eval "(quit)"
 if errorlevel 1 exit 1
 
