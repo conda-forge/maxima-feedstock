@@ -17,8 +17,8 @@ channel_targets:
 gmp:
 - '6'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 readline:
 - '8'
 target_platform:
-- osx-64
+- osx-arm64
