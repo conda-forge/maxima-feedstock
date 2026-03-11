@@ -11,8 +11,8 @@ if errorlevel 1 exit 1
 cd src
 ecl -load maxima-build.lisp ^
     -eval "(require 'asdf)" ^
-    -eval "(push \"./\" asdf:*central-registry*)" ^
-    -eval "(asdf:make-build :maxima :type :fasl :move-here \".\")" ^
+    -eval "(push #p\"./\" asdf:*central-registry*)" ^
+    -eval "(asdf:compile-system "maxima")" ^
     -eval "(quit)"
 if errorlevel 1 exit 1
 
