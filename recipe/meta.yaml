@@ -25,8 +25,13 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
+  ignore_run_exports:
+    # libatomic_ops in host is only needed for its headers when ecl compiles
+    # maxima's C sources; maxima does not link against it, so its run_export
+    # would add a spurious runtime dependency.
+    - libatomic_ops
 
 requirements:
   build:
@@ -39,6 +44,10 @@ requirements:
     - ecl   # [build_platform != target_platform]
   host:
     - ecl
+    # ecl no longer run-exports libatomic_ops (its run_export is ignored in the
+    # ecl feedstock), but its headers are still needed when ecl compiles
+    # maxima's C sources.
+    - libatomic_ops
     - readline
     - gmp
   run:
