@@ -1,4 +1,4 @@
-{% set version = "5.49.0" %}
+{% set version = "5.50.0" %}
 {% set name = "maxima" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tgz
   url: https://sourceforge.net/projects/maxima/files/Maxima-source/{{ version }}-source/{{ name }}-{{ version }}.tar.gz
-  sha256: 6d401a4aa307cd3a5a9cadca4fa96c4ef0e24ff95a18bb6a8f803e3d2114adee
+  sha256: 0bc4b5e11fe153ef20b24a3a816b668ece5378cc738fa24ca426b62fd6d8fc37
   patches:
     # Patches from https://git.sagemath.org/sage.git/tree/build/pkgs/maxima/patches
     # Fixes a test failure that can occur when the install tree has been
@@ -25,7 +25,7 @@ source:
     - patches/disable_5_42_2_tests.diff
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   ignore_run_exports:
     # libatomic_ops in host is only needed for its headers when ecl compiles
