@@ -1,14 +1,17 @@
-{% set version = "5.50.0" %}
-{% set name = "maxima" %}
+schema_version: 1
+
+context:
+  version: "5.50.0"
+  name: maxima
 
 package:
-  name: {{ name }}
-  version: {{ version }}
+  name: ${{ name }}
+  version: ${{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tgz
-  url: https://sourceforge.net/projects/maxima/files/Maxima-source/{{ version }}-source/{{ name }}-{{ version }}.tar.gz
+  url: https://sourceforge.net/projects/maxima/files/Maxima-source/${{ version }}-source/${{ name }}-${{ version }}.tar.gz
   sha256: 0bc4b5e11fe153ef20b24a3a816b668ece5378cc738fa24ca426b62fd6d8fc37
+  file_name: ${{ name }}-${{ version }}.tgz
   patches:
     # Patches from https://git.sagemath.org/sage.git/tree/build/pkgs/maxima/patches
     # Fixes a test failure that can occur when the install tree has been
@@ -26,22 +29,18 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
-  ignore_run_exports:
-    # libatomic_ops in host is only needed for its headers when ecl compiles
-    # maxima's C sources; maxima does not link against it, so its run_export
-    # would add a spurious runtime dependency.
-    - libatomic_ops
+  skip: win
 
 requirements:
   build:
-    - gnuconfig  # [unix]
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - gnuconfig
     - libtool
-    - texinfo
     - make
-    - ecl   # [build_platform != target_platform]
+    - texinfo
+    - if: build_platform != target_platform
+      then: ecl
   host:
     - ecl
     # ecl no longer run-exports libatomic_ops (its run_export is ignored in the
@@ -52,26 +51,29 @@ requirements:
     - gmp
   run:
     - readline
-    - {{ pin_compatible('ecl', max_pin='x.x.x') }}
+    - ${{ pin_compatible('ecl', upper_bound='x.x.x') }}
     - gmp
-  run_constrained:
-    # sagelib <10.1 is incompatible with maxima 5.47, see https://github.com/conda-forge/maxima-feedstock/issues/33
+  ignore_run_exports:
+    by_name:
+      - libatomic_ops
+  run_constraints:
     - sagelib >=10.1
 
-test:
-  files:
-    - run-from-ecl.lisp
-  commands:
-    - maxima --version
-    - ecl -shell run-from-ecl.lisp
+tests:
+  - files:
+      recipe:
+        - run-from-ecl.lisp
+    script:
+      - maxima --version
+      - ecl -shell run-from-ecl.lisp
 
 about:
-  home: http://maxima.sourceforge.net/
   license: GPL-2.0-or-later
   license_file: COPYING
   summary: Maxima is a system for the manipulation of symbolic and numerical expressions.
-  doc_url: http://maxima.sourceforge.net/documentation.html
-  dev_url: https://sourceforge.net/p/maxima/code/ci/master/tree/
+  homepage: http://maxima.sourceforge.net/
+  repository: https://sourceforge.net/p/maxima/code/ci/master/tree/
+  documentation: http://maxima.sourceforge.net/documentation.html
 
 extra:
   recipe-maintainers:
