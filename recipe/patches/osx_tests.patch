@@ -1,8 +1,8 @@
 diff --git a/tests/rtest14.mac b/tests/rtest14.mac
-index 3e5cd52..ac9b72a 100644
+index cbc73bd..192e719 100644
 --- a/tests/rtest14.mac
 +++ b/tests/rtest14.mac
-@@ -1076,8 +1076,8 @@ closeto(AS_10_4_17(-2),1.0e-15);
+@@ -1074,8 +1074,8 @@ closeto(AS_10_4_17(-2),1.0e-15);
  true;
  closeto(AS_10_4_17(-5),1.0e-14);
  true;
@@ -13,7 +13,7 @@ index 3e5cd52..ac9b72a 100644
  
  /* Test that complex float arguments are evaluated */
  airy_ai(%i);
-@@ -1630,8 +1630,8 @@ true;
+@@ -1673,8 +1673,8 @@ true;
  test_bessel(bessel_k(2.0,-1.0),1.624838898635177 - 0.426463882082061*%i,14);
  true;
  
@@ -24,7 +24,7 @@ index 3e5cd52..ac9b72a 100644
  
  test_bessel(bessel_k(2.5,-1.0),-3.406861044815549*%i,14);
  true;
-@@ -1754,10 +1754,10 @@ test_wronskian('w_jj, lambda([n,z], -2.0*sin(n*%pi)/(z*%pi)), 1e-14, 10);
+@@ -1797,10 +1797,10 @@ test_wronskian('w_jj, lambda([n,z], -2.0*sin(n*%pi)/(z*%pi)), 1e-14, 10);
  
  /* Calculation of w_jj for complex argument */
  
@@ -37,7 +37,7 @@ index 3e5cd52..ac9b72a 100644
  
  /*******************************************************************************
  
-@@ -1778,8 +1778,8 @@ test_wronskian(w_jy, lambda([n,z], 2.0/(z*%pi)), 1e-14, 10);
+@@ -1821,8 +1821,8 @@ test_wronskian(w_jy, lambda([n,z], 2.0/(z*%pi)), 1e-14, 10);
  
  /* Calculation of w_jy for complex argument */
  
@@ -48,7 +48,7 @@ index 3e5cd52..ac9b72a 100644
  
  /*******************************************************************************
  
-@@ -1794,8 +1794,8 @@ w_ii(n,z) := bessel_i(n,z)*bessel_i(-n-1,z) - bessel_i(n+1,z)*bessel_i(-n,z);
+@@ -1837,8 +1837,8 @@ w_ii(n,z) := bessel_i(n,z)*bessel_i(-n-1,z) - bessel_i(n+1,z)*bessel_i(-n,z);
  
  /* Calculation of w_ii for real argument */
  
@@ -59,7 +59,7 @@ index 3e5cd52..ac9b72a 100644
  
  /* Calculation of w_ii for complex argument */
  
-@@ -1817,8 +1817,8 @@ w_ik(n,z) := bessel_i(n,z)*bessel_k(n+1,z) + bessel_i(n+1,z)*bessel_k(n,z);
+@@ -1860,8 +1860,8 @@ w_ik(n,z) := bessel_i(n,z)*bessel_k(n+1,z) + bessel_i(n+1,z)*bessel_k(n,z);
  
  /* Calculation of w_ik for real argument */
  
@@ -70,7 +70,7 @@ index 3e5cd52..ac9b72a 100644
  
  /* Calculation of w_ik for complex argument */
  
-@@ -1843,10 +1843,10 @@ test_wronskian(w_h1h2, lambda([v,z], -4*%i/(%pi*z)), 1e-14, 5);
+@@ -1886,10 +1886,10 @@ test_wronskian(w_h1h2, lambda([v,z], -4*%i/(%pi*z)), 1e-14, 5);
  
  /* Calculation of w_h1h2 for complex argument */
  

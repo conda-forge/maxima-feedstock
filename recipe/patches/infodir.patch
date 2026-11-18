@@ -1,13 +1,13 @@
 diff --git a/src/init-cl.lisp b/src/init-cl.lisp
-index 0e1f18b..125f449 100644
+index fcc2bbe..7fb9368 100644
 --- a/src/init-cl.lisp
 +++ b/src/init-cl.lisp
-@@ -134,7 +134,7 @@ When one changes, the other does too."
+@@ -89,7 +89,7 @@ maxima [options] --batch-string='batch_answers_from_file:false; ...'
+ 	(progn
  	  (setq libdir     (combine-path maxima-prefix-env "lib"))
- 	  (setq libexecdir (combine-path maxima-prefix-env "libexec"))
  	  (setq datadir    (combine-path maxima-prefix-env "share"))
 -	  (setq infodir    (combine-path maxima-prefix-env #+(or cygwin windows win32 win64) "share" "info")))
 +	  (setq infodir    (combine-path maxima-prefix-env "share" "info")))
  	(progn
  	  (setq libdir     (maxima-parse-dirstring *autoconf-libdir*))
- 	  (setq libexecdir (maxima-parse-dirstring *autoconf-libexecdir*))
+ 	  (setq datadir    (maxima-parse-dirstring *autoconf-datadir*))
